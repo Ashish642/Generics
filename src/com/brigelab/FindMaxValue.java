@@ -15,6 +15,7 @@ public class FindMaxValue<T extends Comparable<T>> {
         Arrays.sort(elements);
         int length = elements.length;
         T max = elements[length - 1];
+        System.out.println("Maximum value of three : " +max);
         return max;
     }
 
