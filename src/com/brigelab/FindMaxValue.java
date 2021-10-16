@@ -1,37 +1,32 @@
 package com.brigelab;
-import java.util.Arrays;
 
-public class FindMaxValue<T extends Comparable<T>> {
-    T[] elements;
-    public FindMaxValue(T[] elements) {
-        this.elements = elements;
-
-    }
+public class FindMaxValue {
     /**
-     * Generics method to store values in array and return maximum value
-     * return max : Maximum of three values
+     * Generic method to compare any type of data   and maximum
+     * a1 : First value to compare
+     * a2 : Second value to compare
+     * a3 : Third value to compare
+     * return max: Maximum of three values
      */
-    public static <T extends Comparable<T>> T maxOfValue(T[] elements) {
-        Arrays.sort(elements);
-        int length = elements.length;
-        T max = elements[length - 1];
-        System.out.println("Maximum value of three : " +max);
+    public static <T extends Comparable<T>> T maxOfValues(T a1,T a2, T a3) {
+        T max = a1;
+        if (a2.compareTo(max)> 0)
+            max =a2;
+        if (a3.compareTo(max) > 0)
+        max =a3;
         return max;
     }
-
-
-
     public static void main(String[] args) {
-        System.out.println("Welcome to program to find maximum value using generics ");
-        Integer [] intMax = {10,20,30,21,16,99,8};
-        System.out.println("Maximum b/w three Integer is : " + maxOfValue(intMax));
-        Float [] floatMax = {5.6f,56.4f,43.5f,67.9f};
-        System.out.println("The Maximum b/w three floats is : " + maxOfValue(floatMax));
-        String[] stringMax = { "sdf","cfd","mpl","ipl","bcc","ddn", "zyx", "bbl"};
-        System.out.println("The maximum b/w three string is : " + maxOfValue(stringMax));
-
-
-
+        System.out.println("Welcome to the program to find the maximum value using generics");
+        Integer a1= 3, a2 =4, a3 = 9;
+        System.out.println("the maximum b/w three integer is :" + maxOfValues(a1,a2,a3));
+        Float f1 =3.5f, f2 = 9.5f, f3 = 7.4f;
+        System.out.println("The maximum b/w three float is :" + maxOfValues(f1,f2,f3));
+        String s1 = "ads", s2 = "swe", s3 = "ytr";
+        System.out.println("The Maximum b/w three string is " + maxOfValues(s1,s2,s3));
     }
 }
+ 
+
+
 
