@@ -1,66 +1,33 @@
 package com.brigelab;
+import java.util.Arrays;
 
-public class FindMaxValue {
-    /**
-     * Method used to compare three integer values and get maximum the maximum valu. a1 :
-     * First value to compare a2 : Second valu to compare a3 : Third value to
-     * compare to max : Maximum of three integers
-     */
-    public static Integer maxOfInteger(Integer a1,Integer a2, Integer a3) {
-        Integer max = a1;
-        if (a2.compareTo(max) > 0)
-            max = 2;
-        if (a3.compareTo(max) > 0)
-            max = a3;
-        return max;
+public class FindMaxValue<T extends Comparable<T>> {
+    T[] elements;
+    public FindMaxValue(T[] elements) {
+        this.elements = elements;
 
     }
-
     /**
-     * Method to compare three float values and get the maximum valu.
-     * f1 : First value to compare .
-     * f2 : Second value to compare.
-     * f3 : Third value to compare.
-     * return max : Maximum of three float
+     * Generics method to store values in array and return maximum value
+     * return max : Maximum of three values
      */
-
-    public static Float maxOfFloat(Float f1, Float f2, Float f3) {
-        Float max = f1;
-        if (f2.compareTo(max) > 0)
-            max = f2;
-        if (f3.compareTo(max) > 0)
-            max = f3;
+    public static <T extends Comparable<T>> T maxOfValue(T[] elements) {
+        Arrays.sort(elements);
+        int length = elements.length;
+        T max = elements[length - 1];
         return max;
-    }
-
-    /**
-     * Method to compare three string and get the maximum value.
-     * s1 : First valu to compare.
-     * s2 : Second value to compare.
-     * s3 : Third value to compare.
-     * return max : Maximum of three string
-     */
-    public static String maxOfString(String s1,String s2, String s3) {
-        String max = s1;
-        if (s2.compareTo(max)>0)
-            max = s2;
-        if (s3.compareTo(max)>0)
-            max = s3;
-        return  max;
-
-
     }
 
 
 
     public static void main(String[] args) {
-        System.out.println("Welcome to program to find maximum value ");
-        Integer a1 = 30, a2 = 40, a3 = 90;
-        System.out.println("Maximum b/w three Integer is : " + maxOfInteger(a1, a2, a3));
-        Float f1 = 3.6f, f2 = 9.4f, f3 = 7.6f;
-        System.out.println("The Maximum b/w three floats is : " + maxOfFloat(f1,f2,f3));
-        String s1 = "abc", s2 = "rat", s3 = "mat";
-        System.out.println("The maximum b/w three string is : " +maxOfString(s1, s2, s3));
+        System.out.println("Welcome to program to find maximum value using generics ");
+        Integer [] intMax = {10,20,30,21,16,99,8};
+        System.out.println("Maximum b/w three Integer is : " + maxOfValue(intMax));
+        Float [] floatMax = {5.6f,56.4f,43.5f,67.9f};
+        System.out.println("The Maximum b/w three floats is : " + maxOfValue(floatMax));
+        String[] stringMax = { "sdf","cfd","mpl","ipl","bcc","ddn", "zyx", "bbl"};
+        System.out.println("The maximum b/w three string is : " + maxOfValue(stringMax));
 
 
 
